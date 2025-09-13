@@ -10,11 +10,14 @@ if (navigator.geolocation) {
         },
         {
             enableHighAccuracy: true,
-            timeout: 1000,
+            timeout: 5000,
             maximumAge: 0,
         }
             
     );
+}
+else{
+    alert("Geolocation is not supported by your browser.");
 }
 
 const map = L.map("map").setView([0,0], 10);
@@ -36,7 +39,7 @@ socket.on("receive-location", (data)=>{
    }
 });
 
-socket.on("user-disconnected", function (){
+socket.on("user-disconnected", function (id){
     if(markers[id]){
         map.removeLayer(markers[id]);
         delete markers[id];

@@ -33,5 +33,5 @@ app.get("/", function (req, res) {
 console.log("my name is", process.env.myname);
 
 server.listen(port, () => {
-    console.log('port is connected');
+    console.log('port is connected at http://localhost:4000');
 })
